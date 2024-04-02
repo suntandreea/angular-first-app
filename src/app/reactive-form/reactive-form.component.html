@@ -1,0 +1,20 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSave()">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" formControlName="name" id="name">
+  </div>
+
+  <div>
+    <label for="email">Email</label>
+    <input type="email" formControlName="email" id="email">
+  </div>
+
+  <div><label for="status">Status</label>
+    <select name="status" id="status" formControlName="status">
+      <option value="stable">Stable</option>
+      <option value="critical">Critical</option>
+      <option value="finished">Finished</option>
+    </select>
+  </div>
+  <button type="submit">Send</button>
+</form>
