@@ -23,13 +23,45 @@
 
 <!--<app-reactive-form></app-reactive-form>-->
 
+<!--<div class="container">-->
+<!--  <app-cockpit (serverCreated)="onServerAdded($event)"-->
+<!--               (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>-->
+<!--  <hr>-->
+<!--  <div class="row">-->
+<!--    <div class="col-xs-12">-->
+<!--      <app-server-element *ngFor="let element of serverElements" [element]="element"></app-server-element>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
 <div class="container">
-  <app-cockpit (serverCreated)="onServerAdded($event)"
-               (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
-  <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element *ngFor="let element of serverElements" [element]="element"></app-server-element>
+      <h3>Bind it!</h3>
+      <ol>
+        <li>Create three new components: GameControl, Odd and Even</li>
+        <li>The GameControl Component should have buttons to start and stop the game</li>
+        <li>When starting the game, an event (holding a incrementing number) should get emitted each second (ref = setInterval())</li>
+        <li>The event should be listenable from outside the component</li>
+        <li>When stopping the game, no more events should get emitted (clearInterval(ref))</li>
+        <li>A new Odd component should get created for every odd number emistopGametted, the same should happen for the Even Component (on even numbers)</li>
+        <li>Simply output Odd - NUMBER or Even - NUMBER in the two components</li>
+        <li>Style the element (e.g. paragraph) holding your output text differently in both components</li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-game-control (generateIntervalEvent)="onGameStarted($event)"/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-container *ngFor="let counter of counters">
+        <app-odd *ngIf="counter%2 !== 0" [counter]="counter"></app-odd>
+        <app-even *ngIf="counter%2 === 0" [counter]="counter">{{counter}}</app-even>
+      </ng-container>
     </div>
   </div>
 </div>
+

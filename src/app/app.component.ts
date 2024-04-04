@@ -16,21 +16,27 @@ export class AppComponent {
   //   this.formData.reset();
   // };
 
-  serverElements = [{type: 'server', name: 'Test Server', content: 'basdasdas'}];
+  // serverElements = [{type: 'server', name: 'Test Server', content: 'basdasdas'}];
+  //
+  // onServerAdded(serverData: {serverName: string; serverContent: string}) {
+  //   this.serverElements.push({
+  //     type: 'server',
+  //     name: serverData.serverName,
+  //     content: serverData.serverContent
+  //   });
+  // }
+  //
+  // onBlueprintAdded(blueprintData: {serverName: string; serverContent: string}) {
+  //   this.serverElements.push({
+  //     type: 'blueprint',
+  //     name: blueprintData.serverName,
+  //     content: blueprintData.serverContent
+  //   });
+  // }
 
-  onServerAdded(serverData: {serverName: string; serverContent: string}) {
-    this.serverElements.push({
-      type: 'server',
-      name: serverData.serverName,
-      content: serverData.serverContent
-    });
-  }
+  counters: number[] = [];
 
-  onBlueprintAdded(blueprintData: {serverName: string; serverContent: string}) {
-    this.serverElements.push({
-      type: 'blueprint',
-      name: blueprintData.serverName,
-      content: blueprintData.serverContent
-    });
+  onGameStarted(counter: number) {
+  this.counters.push(counter);
   }
 }
