@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-import {ServerComponent} from '../other/server/server.component';
-import { ServersComponent } from '../other/servers/servers.component';
-import { ReactiveFormComponent } from '../other/reactive-form/reactive-form.component';
-import { CockpitComponent } from '../other/cockpit/cockpit.component';
-import { ServerElementComponent } from '../other/server-element/server-element.component';
-import { GameControlComponent } from './components/game-control/game-control.component';
-import { OddComponent } from './components/odd/odd.component';
-import { EvenComponent } from './components/even/even.component';
+import {CockpitComponent} from './components/other/cockpit/cockpit.component';
+import { GameControlComponent } from './components/other/game-control/game-control.component';
+import { OddComponent } from './components/other/odd/odd.component';
+import { EvenComponent } from './components/other/even/even.component';
+import { ActiveUsersComponent } from './components/active-users/active-users.component';
+import { InactiveUsersComponent } from './components/inactive-users/inactive-users.component';
+import {ReactiveFormComponent} from './components/other/reactive-form/reactive-form.component';
+import {ServerElementComponent} from './components/other/server-element/server-element.component';
+import {ServerComponent} from './components/other/server/server.component';
+import {ServersComponent} from './components/other/servers/servers.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { EvenComponent } from './components/even/even.component';
     ServerElementComponent,
     GameControlComponent,
     OddComponent,
-    EvenComponent
+    EvenComponent,
+    ActiveUsersComponent,
+    InactiveUsersComponent
   ],
   imports: [
     BrowserModule,

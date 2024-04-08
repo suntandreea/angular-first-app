@@ -1,12 +1,14 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {UsersService} from './services/users.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers: [UsersService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   // @ViewChild('f') formData: NgForm;
   // subscriptions = ['basic', 'advanced', 'pro'];
   // default = "basic";
@@ -34,9 +36,19 @@ export class AppComponent {
   //   });
   // }
 
-  counters: number[] = [];
+  // counters: number[] = [];
+  //
+  // onGameStarted(counter: number) {
+  // this.counters.push(counter);
+  // }
 
-  onGameStarted(counter: number) {
-  this.counters.push(counter);
+  activeUsers = [];
+  inactiveUsers = [];
+
+  constructor(private users: UsersService) {}
+
+  ngOnInit() {
+    this.activeUsers = this.users.activeUsers;
+    this.inactiveUsers = this.users.inactiveUsers;
   }
 }
